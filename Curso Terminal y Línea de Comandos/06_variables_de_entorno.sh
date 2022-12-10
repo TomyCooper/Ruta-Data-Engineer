@@ -1,3 +1,6 @@
+# Un pequeño TIP: agregar un alias a un directorio para acceder de manera más rápida.
+ln -s Documents
+
 # Las variables de entorno de mi sistema.
 printenv
 env
