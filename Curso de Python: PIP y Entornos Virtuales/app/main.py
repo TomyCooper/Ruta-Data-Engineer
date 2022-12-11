@@ -1,8 +1,10 @@
 import utils
 import read_csv
 import charts
+import pandas as pd
 
 def run():
+    """
     data = read_csv.read_csv('/Users/tomycooper/Documents/Ruta Data Engineer/Curso de Python: Comprehensions, Funciones y Manejo de Errores/app/data.csv')
 
     continent = input('Ingresa el continente que deseas consultar:')# Esto es solo mío.
@@ -12,9 +14,16 @@ def run():
     countries = list(map(lambda x: x['Country/Territory'], data))
 
     percentages = list(map(lambda x: x['World Population Percentage'], data))
+    """
+
+    df = pd.read_csv('data.csv')
+    df = df[df['Continent']=='Africa']
+    countries = df['Country/Territory'].values
+    percentages = df['World Population Percentage'].values
 
     charts.generate_pie_chart(countries, percentages)
     
+    data = read_csv.read_csv('data.csv')
     country = input('Ingresa el país:')
     
     country_dict = utils.population_by_country(data, country)
